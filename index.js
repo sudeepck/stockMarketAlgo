@@ -30,21 +30,22 @@ app.get('/trading',async(req,res)=>{
             url: url,
             json: true,
             headers: {'User-Agent': 'request'}
-        }, (err, res, data) => {
+        }, (err, response, data) => {
             if (err) {
             console.log('Error:', err);
-            } else if (res.statusCode !== 200) {
-            console.log('Status:', res.statusCode);
+            } else if (response.statusCode !== 200) {
+            console.log('Status:', response.statusCode);
             } else {
                 tradeMarketData = data
                 console.log(tradeMarketData)
                 str = executeTradingStrategy(tradeMarketData,thresholdValue,averagePriceValue,accountBalance,str,brokerageBuyFee,brokerageSellFee);
+                res.send(str);
             }
         })
 
-        setTimeout(() => {
-            res.send(str);
-        }, 5000);
+       // setTimeout(() => {
+         //   res.send(str);
+       // }, 5000);
 })
 
 app.listen(3000,()=>{
