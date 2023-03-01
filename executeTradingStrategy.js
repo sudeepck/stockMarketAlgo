@@ -35,8 +35,9 @@ executeTradingStrategy =(tradeMarketData,threshold,averagePriceValue,accountBala
                         buyed --;
                         numberofSelled++;   
                         profit = previousBuyedValue < currentPriceValue ? "profit" :"loss";
-
-                        str +=`${Date} &nbsp; &nbsp;  &nbsp; &nbsp; SELL &emsp;&emsp;&emsp;&emsp;&emsp;${[averagePriceValue]} &emsp;&emsp;&emsp;&emsp;&emsp;${[currentPriceValue.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp; ${[threshold]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  ${[accountBalance.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${[accountValue.toFixed(2)]} &emsp; ${profit} <br/>`
+                
+                        str +=`${Date} &nbsp; &nbsp;  &nbsp; &nbsp; SELL &emsp;&emsp;&emsp;&emsp;${[averagePriceValue]} &emsp;&emsp;&emsp;&emsp;&nbsp;${[currentPriceValue.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&nbsp; ${[threshold]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  ${[accountBalance.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp;${[accountValue.toFixed(2)]} &emsp;&emsp; ${profit} <br/>`
+                        //str +=`${Date} &nbsp; &nbsp;  &nbsp; &nbsp; SELL &emsp;&emsp;&emsp;&emsp;&emsp;${[averagePriceValue]} &emsp;&emsp;&emsp;&emsp;&emsp;${[currentPriceValue.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp; ${[threshold]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  ${[accountBalance.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${[accountValue.toFixed(2)]} &emsp; ${profit} <br/>`
                         // return {[Date] : "it's time to Sell the stock "}
                     } else if (priceDifference < threshold && accountBalance >= currentPriceValue && buyed == 0) {
                         previousBuyedValue = currentPriceValue;//94
@@ -53,7 +54,8 @@ executeTradingStrategy =(tradeMarketData,threshold,averagePriceValue,accountBala
                         buyed++;
                         numberofpurshaced++;
                         flag =1;
-                          str +=`${Date} &nbsp; &nbsp;  &nbsp; &nbsp; BUY &emsp;&emsp;&emsp;&emsp;&emsp;${[averagePriceValue]} &emsp;&emsp;&emsp;&emsp;&emsp;${[currentPriceValue.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp; ${[threshold]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ${[accountBalance.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${[accountValue.toFixed(2)]} <br/>`
+                        str +=`${Date} &nbsp; &nbsp;  &nbsp; &nbsp; BUY &emsp;&emsp;&emsp;&emsp;${[averagePriceValue]} &emsp;&emsp;&emsp;&emsp;&nbsp;${[currentPriceValue.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&nbsp; ${[threshold]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ${[accountBalance.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp;${[accountValue.toFixed(2)]} <br/>`
+                          //str +=`${Date} &nbsp; &nbsp;  &nbsp; &nbsp; BUY &emsp;&emsp;&emsp;&emsp;&emsp;${[averagePriceValue]} &emsp;&emsp;&emsp;&emsp;&emsp;${[currentPriceValue.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp; ${[threshold]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ${[accountBalance.toFixed(2)]} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${[accountValue.toFixed(2)]} <br/>`
                     } else {
                         flag = 0;
                     }
