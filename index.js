@@ -37,6 +37,7 @@ app.get('/trading',async(req,res)=>{
             console.log('Status:', res.statusCode);
             } else {
                 tradeMarketData = data
+                console.log(tradeMarketData)
                 str = executeTradingStrategy(tradeMarketData,thresholdValue,averagePriceValue,accountBalance,str,brokerageBuyFee,brokerageSellFee);
             }
         })
