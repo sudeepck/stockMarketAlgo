@@ -37,15 +37,11 @@ app.get('/trading',async(req,res)=>{
             console.log('Status:', res.statusCode);
             } else {
                 tradeMarketData = data
-                // console.log(tradeMarketData["Time Series (5min)"])
                 str = executeTradingStrategy(tradeMarketData,thresholdValue,averagePriceValue,accountBalance,str,brokerageBuyFee,brokerageSellFee);
-                console.log(str);
             }
         })
 
         setTimeout(() => {
-              console.log("**********");
-              console.log(str);
             res.send(str);
         }, 5000);
 })
