@@ -1,6 +1,6 @@
 executeTradingStrategy =(tradeMarketData,threshold,averagePriceValue,accountBalance,str,brokeragebuyFee,brokerageSellFee) =>
 {
-    str +=`Date &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &emsp &nbsp; &nbsp;&nbsp; BuyOrSell &nbsp;&nbsp; &nbsp;&nbsp;  avgPriceValue &emsp; current price &emsp; thresholdValue &emsp;  accountBalance &emsp; accountValue  &emsp; profitOrLoss <br/>`;
+    str +=`Date &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &emsp; &nbsp; &nbsp;&nbsp; BuyOrSell &nbsp;&nbsp; &nbsp;&nbsp;  avgPriceValue &emsp; current price &emsp; thresholdValue &emsp;  accountBalance &emsp; accountValue  &emsp; profitOrLoss <br/>`;
     let accountValue = accountBalance;
     let unchangedinitialBalance = accountBalance;
 
@@ -20,7 +20,7 @@ executeTradingStrategy =(tradeMarketData,threshold,averagePriceValue,accountBala
                let currentPriceValue = (parseInt(High) + parseInt(Low))/2
                 let priceDifference = Math.abs(currentPriceValue - averagePriceValue);//129.5 -- 129.3 = 0.3
 
-                // console.log(priceDifference  +  " " + threshold)
+                console.log(priceDifference  +  " " + threshold)
                     // if sell  else buy
                     if (priceDifference > threshold && buyed == 1 && previousBuyedValue < currentPriceValue) {
                         flag = 1;
@@ -64,9 +64,6 @@ executeTradingStrategy =(tradeMarketData,threshold,averagePriceValue,accountBala
         let finalBalance = accountBalance;
         console.log("numberofpurshaced = " + numberofpurshaced + "\t" + "numberofSelled ="  +numberofSelled )
         console.log("initialBalance = " +  unchangedinitialBalance +"\t"+ "finalBalance = " +  finalBalance);
-
-        console.log(str);
-        console.log("*************")
     return str;
 }
 
